@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Endorsement } from "@/data/endorsements";
 
 export default function EndorsementBadge({ endorsement }: { endorsement: Endorsement }) {
@@ -6,14 +7,30 @@ export default function EndorsementBadge({ endorsement }: { endorsement: Endorse
       href={endorsement.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-green transition-all focus:outline-2 focus:outline-offset-2 focus:outline-green"
+      className="block bg-white rounded-xl shadow-sm p-6 hover:shadow-md hover:scale-[1.02] transition-all duration-200 focus:outline-2 focus:outline-offset-2 focus:outline-green"
     >
-      <div className="flex items-start gap-3">
-        <span className="text-green text-2xl" aria-hidden="true">✓</span>
-        <div>
-          <h3 className="font-bold text-navy text-lg">{endorsement.name}</h3>
-          <p className="text-text/70 text-sm mt-1">{endorsement.description}</p>
-        </div>
+      <div className="flex flex-col items-center gap-3 h-full">
+        {endorsement.logoUrl ? (
+          <div className="flex items-center justify-center w-full h-16">
+            <Image
+              src={endorsement.logoUrl}
+              alt={`${endorsement.name} logo`}
+              width={200}
+              height={64}
+              className="max-h-16 w-auto object-contain"
+              unoptimized
+            />
+          </div>
+        ) : (
+          <div className="flex items-center justify-center w-full h-16">
+            <span className="font-bold text-navy text-xl text-center leading-tight">
+              {endorsement.name}
+            </span>
+          </div>
+        )}
+        <p className="text-text/60 text-xs text-center font-medium tracking-wide uppercase mt-auto">
+          {endorsement.name}
+        </p>
       </div>
     </a>
   );
