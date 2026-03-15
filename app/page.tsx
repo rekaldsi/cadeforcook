@@ -256,13 +256,14 @@ export default function Home() {
           <p className="text-center text-text/70 leading-relaxed max-w-2xl mx-auto mb-10">
             Nicholas isn't just asking for your vote — he wants to be a commissioner who actually helps. Food, housing, health care, immigration, legal aid — we've put together a resource guide for northwest side residents.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-3xl mx-auto mb-10">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 max-w-3xl mx-auto mb-10">
             {[
               { emoji: "🍎", label: "Food Help", href: "/resources#food" },
               { emoji: "🏠", label: "Housing", href: "/resources#housing" },
               { emoji: "🏥", label: "Health", href: "/resources#health" },
               { emoji: "📋", label: "Immigration", href: "/resources#immigration" },
-              { emoji: "⚖️", label: "Legal Aid", href: "/resources#legal" },
+              { emoji: "💼", label: "Jobs", href: "/resources#jobs" },
+              { emoji: "👴", label: "Seniors", href: "/resources#seniors" },
             ].map((item) => (
               <Link
                 key={item.href}
