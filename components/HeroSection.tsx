@@ -89,7 +89,7 @@ export default function HeroSection() {
           </Link>
           <Link
             href="/resources"
-            className="inline-block bg-white/10 text-white font-bold text-base px-8 py-4 rounded-lg border border-white/30 hover:bg-white/20 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
+            className="inline-block bg-transparent border-2 border-white/50 text-white/80 font-bold text-base px-8 py-4 rounded-lg hover:border-white hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
           >
             Get Help →
           </Link>
