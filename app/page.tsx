@@ -63,6 +63,9 @@ export default function Home() {
         aria-labelledby="case-heading"
       >
         <div className="max-w-6xl mx-auto px-4">
+          <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
+            March 17 Primary
+          </p>
           <h2
             id="case-heading"
             className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-12"
@@ -71,25 +74,22 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Served */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-navy hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">🎖️</div>
-              <h3 className="font-heading text-2xl font-bold text-navy mb-3">
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-navy hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.served.title}
               </h3>
               <p className="text-text/80 leading-relaxed">{tr.case.served.body}</p>
             </div>
             {/* Taught */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-red hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">📚</div>
-              <h3 className="font-heading text-2xl font-bold text-navy mb-3">
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-red hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.taught.title}
               </h3>
               <p className="text-text/80 leading-relaxed">{tr.case.taught.body}</p>
             </div>
             {/* Fought */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-skyblue hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">⚖️</div>
-              <h3 className="font-heading text-2xl font-bold text-navy mb-3">
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-skyblue hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.fought.title}
               </h3>
               <p className="text-text/80 leading-relaxed">{tr.case.fought.body}</p>
@@ -321,13 +321,13 @@ export default function Home() {
                 >
                   &ldquo;
                 </div>
-                <p className="text-white/90 text-lg leading-relaxed flex-1 italic">
+                <p className="font-heading text-white/90 text-lg leading-relaxed flex-1 italic">
                   {quote.text}
                 </p>
                 <footer className="mt-6">
                   <cite className="not-italic">
                     <span className="text-white font-bold block">{quote.name}</span>
-                    <span className="text-sm font-mono" style={{ color: "#6DD3E8" }}>
+                    <span className="text-sm font-medium" style={{ color: "#6DD3E8" }}>
                       {quote.neighborhood}
                     </span>
                   </cite>
@@ -361,7 +361,7 @@ export default function Home() {
             {/* Vote */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-navy text-center hover:shadow-md transition-shadow">
               <div className="text-4xl mb-4" aria-hidden="true">🗳️</div>
-              <h3 className="font-heading text-xl font-bold text-navy mb-3">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.getInvolved.vote.title}
               </h3>
               <p className="text-text/70 mb-6 leading-relaxed">
@@ -380,7 +380,7 @@ export default function Home() {
             {/* Canvass */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-red text-center hover:shadow-md transition-shadow">
               <div className="text-4xl mb-4" aria-hidden="true">🚪</div>
-              <h3 className="font-heading text-xl font-bold text-navy mb-3">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.getInvolved.canvass.title}
               </h3>
               <p className="text-text/70 mb-6 leading-relaxed">
@@ -397,7 +397,7 @@ export default function Home() {
             {/* Share */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-skyblue text-center hover:shadow-md transition-shadow">
               <div className="text-4xl mb-4" aria-hidden="true">📢</div>
-              <h3 className="font-heading text-xl font-bold text-navy mb-3">
+              <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.getInvolved.share.title}
               </h3>
               <p className="text-text/70 mb-6 leading-relaxed">

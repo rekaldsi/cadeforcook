@@ -72,7 +72,7 @@ export default function IssueCard({
       </div>
 
       {/* Title */}
-      <h3 className="font-heading text-xl md:text-2xl font-bold text-navy mb-3">
+      <h3 className="text-xl font-bold text-navy mb-3">
         {issue.title[lang]}
       </h3>
 
