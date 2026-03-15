@@ -87,7 +87,7 @@ export default function ResourcesContent() {
       <div className="max-w-6xl mx-auto px-4 py-12 md:py-16 space-y-16">
         <div className="max-w-xl">
           <label htmlFor="resources-search" className="block font-mono text-xs uppercase tracking-[0.15em] text-navy/70 mb-2">
-            🔎 Search resources
+            Search resources
           </label>
           <input
             id="resources-search"
@@ -109,11 +109,10 @@ export default function ResourcesContent() {
         ) : (
           filteredCategories.map((cat) => (
             <section key={cat.id} id={cat.id} aria-labelledby={`${cat.id}-heading`}>
-              <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-navy/10">
-                <span className="text-3xl" aria-hidden="true">{cat.emoji}</span>
+              <div className="mb-6">
                 <h2
                   id={`${cat.id}-heading`}
-                  className="font-heading text-2xl md:text-3xl font-bold text-navy"
+                  className="border-l-4 border-navy pl-4 font-body text-xl font-bold text-navy"
                 >
                   {cat.title}
                 </h2>
@@ -129,9 +128,8 @@ export default function ResourcesContent() {
 
         {/* ── Elected Officials Directory ── */}
         <section id="officials" aria-labelledby="officials-heading">
-          <div className="flex items-center gap-3 mb-6 pb-3 border-b-2 border-navy/10">
-            <span className="text-3xl" aria-hidden="true">🏛️</span>
-            <h2 id="officials-heading" className="font-heading text-2xl md:text-3xl font-bold text-navy">
+          <div className="mb-6">
+            <h2 id="officials-heading" className="border-l-4 border-navy pl-4 font-body text-xl font-bold text-navy">
               Your Elected Officials
             </h2>
           </div>
@@ -153,7 +151,7 @@ export default function ResourcesContent() {
           <div className="space-y-10">
             {electedOfficials.map((group) => (
               <div key={group.level}>
-                <h3 className="font-heading text-lg font-bold text-navy/60 uppercase tracking-wide mb-4">
+                <h3 className="font-mono text-xs font-bold text-navy/60 uppercase tracking-[0.2em] mb-4">
                   {group.level}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -201,8 +199,8 @@ export default function ResourcesContent() {
 
 function ResourceCard({ resource }: { resource: import("@/data/resources").Resource }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col">
-      <h3 className="font-heading text-base font-bold text-navy mb-2 leading-snug">
+    <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm flex flex-col">
+      <h3 className="text-sm font-bold text-navy mb-2 leading-snug">
         {resource.url ? (
           <a
             href={resource.url}
@@ -256,14 +254,14 @@ function OfficialCard({ official }: { official: import("@/data/resources").Elect
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
       <div className="flex items-start justify-between gap-3 mb-2">
-        <h3 className="font-heading text-sm font-bold text-navy/60 uppercase tracking-wide leading-snug">
+        <h3 className="text-sm font-bold text-navy/60 uppercase tracking-wide leading-snug">
           {official.title}
         </h3>
         <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-none ${partyColor}`}>
           {official.party}
         </span>
       </div>
-      <p className="font-heading text-lg font-bold text-navy mb-1">
+      <p className="text-base font-bold text-navy mb-1">
         {official.url ? (
           <a href={official.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
             {official.name}

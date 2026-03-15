@@ -14,7 +14,7 @@ export default function Footer({ showLobbyistDisclaimer = false }: { showLobbyis
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h2 className="font-heading text-xl font-bold text-white mb-3">Cade for Cook</h2>
+            <h2 className="text-xl font-bold text-white mb-3">Cade for Cook</h2>
             <p className="text-sm leading-relaxed">{tr.tagline}</p>
           </div>
           <div>

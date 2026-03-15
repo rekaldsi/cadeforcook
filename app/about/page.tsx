@@ -50,7 +50,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="mt-4 bg-navy text-white rounded-xl p-4 text-center shadow-md">
-                <p className="font-heading font-bold text-lg">Nicholas Cade</p>
+                <p className="font-bold text-lg">Nicholas Cade</p>
                 <p className="text-white/70 text-sm mt-1">Cook County Commissioner</p>
                 <p className="text-red font-mono font-bold text-xs tracking-widest uppercase mt-2">
                   District 8 · Primary March 17, 2026
@@ -71,7 +71,7 @@ export default function AboutPage() {
           {/* Bio content */}
           <div className="md:col-span-3">
             <h2 id="bio-heading" className="sr-only">Biography</h2>
-            <p className="font-heading text-2xl font-bold text-navy mb-6 leading-snug">
+            <p className="text-2xl font-bold text-navy mb-6 leading-snug">
               &ldquo;Nicholas has spent his career solving problems that matter.&rdquo;
             </p>
             <div className="space-y-5 text-text/80 leading-relaxed mb-12">
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
             {/* Timeline */}
             <div className="mb-12">
-              <h3 className="font-heading text-2xl font-bold text-navy mb-8">{tr.timelineHeading}</h3>
+              <h3 className="text-2xl font-bold text-navy mb-8">{tr.timelineHeading}</h3>
               <ol className="relative border-l-2 border-navy/20 space-y-0">
                 {timeline.map((item, i) => (
                   <li key={i} className="ml-6 pb-8 last:pb-0">
@@ -91,7 +91,7 @@ export default function AboutPage() {
                     </span>
                     <div className="pl-2">
                       <span className="text-xs font-mono font-bold text-red tracking-widest uppercase">{item.year}</span>
-                      <h4 className="font-heading font-bold text-navy text-lg leading-tight">{item.label}</h4>
+                      <h4 className="font-bold text-navy text-lg leading-tight">{item.label}</h4>
                       <p className="text-text/70 text-sm leading-relaxed mt-1">{item.detail}</p>
                     </div>
                   </li>

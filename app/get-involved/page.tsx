@@ -53,14 +53,14 @@ export default function GetInvolvedPage() {
 
       <section className="max-w-3xl mx-auto px-4 py-16 md:py-24">
         <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm mb-10">
-          <h2 className="font-heading text-2xl font-bold text-navy mb-6">
+          <h2 className="text-2xl font-bold text-navy mb-6">
             {tr.volunteerHeading}
           </h2>
 
           {formState === "success" ? (
             <div className="text-center py-10">
               <div className="text-5xl mb-4">🎉</div>
-              <h3 className="font-heading text-2xl font-bold text-navy mb-3">
+              <h3 className="text-2xl font-bold text-navy mb-3">
                 You&apos;re on the team!
               </h3>
               <p className="text-text/70">
@@ -157,7 +157,7 @@ export default function GetInvolvedPage() {
         </div>
 
         <div className="bg-light-gray rounded-xl p-6 md:p-8">
-          <h2 className="font-heading text-2xl font-bold text-navy mb-4">
+          <h2 className="text-2xl font-bold text-navy mb-4">
             {tr.followHeading}
           </h2>
           <p className="text-text/70 mb-4">{tr.followSub}</p>

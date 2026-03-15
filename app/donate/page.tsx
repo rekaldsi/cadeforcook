@@ -36,7 +36,7 @@ export default function DonatePage() {
       <section className="max-w-3xl mx-auto px-4 py-16 md:py-24">
         {/* Contribution Rules */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm mb-8">
-          <h2 className="font-heading text-2xl font-bold text-navy mb-4">Contribution Rules</h2>
+          <h2 className="text-2xl font-bold text-navy mb-4">Contribution Rules</h2>
           <p className="text-text/70 mb-4">By contributing, you confirm:</p>
           <ol className="space-y-3">
             {rules.map((rule, i) => (
@@ -52,7 +52,7 @@ export default function DonatePage() {
 
         {/* Cook County Lobbyist Disclosure */}
         <div className="bg-light-gray rounded-xl p-6 md:p-8 border border-gray-200">
-          <h2 className="font-heading text-xl font-bold text-navy mb-3">Cook County Disclosure</h2>
+          <h2 className="text-xl font-bold text-navy mb-3">Cook County Disclosure</h2>
           <p className="text-text/70 leading-relaxed text-sm">
             Pursuant to Cook County Ordinance, no lobbyist registered to lobby Cook County, or person who has done business with Cook County within the preceding four reporting years, or is seeking to do business with Cook County, shall contribute over $1,500 during a calendar year.
           </p>
