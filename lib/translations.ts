@@ -189,7 +189,7 @@ const t: Record<Lang, Translations> = {
     testimonials: {
       eyebrow: "From the Neighborhood",
       heading: "What Voters Are Saying",
-      placeholderBanner: "⚠️ PLACEHOLDER — Real testimonials needed from campaign",
+      placeholderBanner: "",
       quotes: [
         {
           text: "Nicholas knocked on my door and actually listened. I've never felt heard by a politician before.",
@@ -366,7 +366,7 @@ const t: Record<Lang, Translations> = {
     testimonials: {
       eyebrow: "Del Vecindario",
       heading: "Lo Que Dicen los Votantes",
-      placeholderBanner: "⚠️ MARCADOR — Se necesitan testimonios reales de la campaña",
+      placeholderBanner: "",
       quotes: [
         {
           text: "Nicholas tocó mi puerta y realmente escuchó. Nunca antes me había sentido escuchado por un político.",
@@ -541,7 +541,7 @@ const t: Record<Lang, Translations> = {
     testimonials: {
       eyebrow: "Z sąsiedztwa",
       heading: "Co mówią wyborcy",
-      placeholderBanner: "⚠️ MIEJSCE NA TREŚĆ — Potrzebne prawdziwe referencje od kampanii",
+      placeholderBanner: "",
       quotes: [
         {
           text: "Nicholas zapukał do moich drzwi i naprawdę słuchał. Nigdy wcześniej nie czułem się wysłuchany przez polityka.",
@@ -716,7 +716,7 @@ const t: Record<Lang, Translations> = {
     testimonials: {
       eyebrow: "Mula sa Komunidad",
       heading: "Sinasabi ng mga Botante",
-      placeholderBanner: "⚠️ PLACEHOLDER — Kailangan ang tunay na mga testimonya mula sa kampanya",
+      placeholderBanner: "",
       quotes: [
         {
           text: "Kumatok si Nicholas sa aking pintuan at talagang nakinig. Hindi pa ako nakaramdam ng pagkilala mula sa isang pulitiko.",
@@ -891,7 +891,7 @@ const t: Record<Lang, Translations> = {
     testimonials: {
       eyebrow: "पड़ोस से",
       heading: "मतदाता क्या कह रहे हैं",
-      placeholderBanner: "⚠️ PLACEHOLDER — अभियान से वास्तविक प्रशंसापत्र चाहिए",
+      placeholderBanner: "",
       quotes: [
         {
           text: "Nicholas ने मेरे दरवाज़े पर दस्तक दी और वास्तव में सुना। मैंने पहले किसी नेता से कभी सुना हुआ महसूस नहीं किया।",

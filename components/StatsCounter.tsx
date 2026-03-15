@@ -115,7 +115,8 @@ export default function StatsCounter() {
       { threshold: 0.2 }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    const fallback = setTimeout(() => { setTriggered(true); observer.disconnect(); }, 800);
+    return () => { observer.disconnect(); clearTimeout(fallback); };
   }, []);
 
   return (
