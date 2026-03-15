@@ -197,7 +197,7 @@ export default function Home() {
           >
             Endorsements
           </h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
             {endorsements.map((e) => (
               <EndorsementBadge key={e.name} endorsement={e} />
             ))}
