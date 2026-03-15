@@ -1,82 +1,114 @@
+"use client";
+
 import Image from "next/image";
-import { DonateButtonHero, GetInvolvedButton } from "./DonateButton";
+import Link from "next/link";
+import { ACTBLUE_URL } from "./DonateButton";
+import { useLang } from "@/lib/LangContext";
+import t from "@/lib/translations";
 
 export default function HeroSection() {
+  const { lang } = useLang();
+  const tr = t[lang].hero;
+
   return (
     <section
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-navy"
+      className="relative min-h-screen flex flex-col md:flex-row overflow-hidden"
       aria-label="Campaign hero"
     >
-      {/* Very subtle noise texture overlay for depth without busyness */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")",
-        }}
-        aria-hidden="true"
-      />
+      {/* ── LEFT PANEL (60%) — Navy text content ── */}
+      <div className="relative z-10 flex flex-col justify-center bg-navy px-8 md:px-12 lg:px-16 py-20 md:py-24 w-full md:w-[60%] min-h-screen">
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto px-4 py-24 text-center text-white flex flex-col items-center">
-        {/* Banner lockup — the ONE brand image in the hero */}
-        <div className="w-full max-w-2xl mb-10">
-          <Image
-            src="/images/cade-banner.png"
-            alt="Cade for Cook — Campaign Banner"
-            width={800}
-            height={240}
-            className="w-full h-auto drop-shadow-2xl rounded-sm"
-            priority
-          />
-        </div>
-
-        {/* Primary date badge */}
-        <div className="inline-flex items-center gap-2 bg-red/90 text-white text-sm font-bold font-mono tracking-widest uppercase px-4 py-2 rounded-full mb-8 shadow-md">
-          <span
-            className="w-2 h-2 rounded-full bg-white animate-pulse inline-block"
-            aria-hidden="true"
-          />
-          PRIMARY: MARCH 17, 2026
-        </div>
+        {/* Eyebrow */}
+        <p
+          className="font-mono text-xs tracking-[0.25em] uppercase mb-8 font-bold"
+          style={{ color: "#6DD3E8" }}
+        >
+          {tr.eyebrow}
+        </p>
 
         {/* Main headline */}
-        <h1 className="font-heading text-5xl md:text-7xl font-bold leading-tight mb-6">
-          Cook County
-          <br />
-          Can Do Better
+        <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-8">
+          {tr.headline}{" "}
+          <span className="text-red italic">{tr.headlineAccent}</span>{" "}
+          <span className="text-white">Neighborhood.</span>
         </h1>
 
-        {/* Subheadline */}
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Nicholas Cade — Navy veteran, attorney, teacher, and Irving Park dad
-          — is running for Cook County Commissioner, District 8.
+        {/* Subhead */}
+        <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+          {tr.subhead}
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <DonateButtonHero />
-          <GetInvolvedButton />
+        <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <a
+            href={ACTBLUE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-red text-white font-bold text-base px-8 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center tracking-wide uppercase"
+          >
+            {tr.ctaPrimary}
+          </a>
+          <Link
+            href="/about"
+            className="inline-block bg-transparent text-white font-bold text-base px-8 py-4 rounded-lg border-2 border-white hover:bg-white hover:text-navy transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
+          >
+            {tr.ctaSecondary}
+          </Link>
         </div>
+
+        {/* Social proof strip */}
+        <div className="border-t border-white/20 pt-6">
+          <p className="text-white/50 text-xs font-mono tracking-wide leading-relaxed">
+            {tr.endorsedBy}
+          </p>
+        </div>
+      </div>
+
+      {/* ── RIGHT PANEL (40%) — Headshot ── */}
+      {/* Desktop: absolute side panel */}
+      <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[40%]">
+        <Image
+          src="/images/cade-headshot.jpg"
+          alt="Nicholas Cade, candidate for Cook County Commissioner District 8"
+          fill
+          className="object-cover object-top"
+          sizes="40vw"
+          priority
+        />
+        {/* Warm overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(10,34,64,0.35) 0%, rgba(244,169,43,0.08) 100%)" }}
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Mobile: headshot as background behind left content */}
+      <div className="md:hidden absolute inset-0 z-0">
+        <Image
+          src="/images/cade-headshot.jpg"
+          alt=""
+          fill
+          className="object-cover object-top"
+          sizes="100vw"
+          priority
+          aria-hidden="true"
+        />
+        {/* Heavy overlay so text is readable on mobile */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(10,34,64,0.88) 0%, rgba(10,34,64,0.80) 100%)" }}
+          aria-hidden="true"
+        />
       </div>
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce md:left-[30%]"
         aria-hidden="true"
       >
-        <svg
-          className="w-6 h-6 text-white/50"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 9l-7 7-7-7"
-          />
+        <svg className="w-6 h-6 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </div>
     </section>

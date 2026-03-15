@@ -4,17 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { ACTBLUE_URL } from "./DonateButton";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "Meet Nicholas" },
-  { href: "/issues", label: "Issues" },
-  { href: "/get-involved", label: "Get Involved" },
-  { href: "/press", label: "Press" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLang } from "@/lib/LangContext";
+import t from "@/lib/translations";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { lang } = useLang();
+  const tr = t[lang].nav;
+
+  const links = [
+    { href: "/", label: tr.home },
+    { href: "/about", label: tr.about },
+    { href: "/issues", label: tr.issues },
+    { href: "/get-involved", label: tr.getInvolved },
+    { href: "/press", label: tr.press },
+  ];
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200" role="banner">
@@ -31,41 +36,45 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-5">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-text hover:text-navy font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+              className="text-text hover:text-navy font-medium transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy text-sm"
             >
               {l.label}
             </Link>
           ))}
+          <LanguageSwitcher />
           <a
             href={ACTBLUE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-red text-white font-bold px-5 py-2 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+            className="bg-red text-white font-bold px-5 py-2 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy text-sm"
           >
-            Donate
+            {tr.donate}
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-          aria-expanded={open}
-          aria-label="Toggle navigation menu"
-        >
-          <svg className="w-6 h-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        {/* Mobile: lang switcher + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setOpen(!open)}
+            className="p-2 focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+            aria-expanded={open}
+            aria-label="Toggle navigation menu"
+          >
+            <svg className="w-6 h-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -87,7 +96,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="block mt-3 text-center bg-red text-white font-bold py-3 rounded-lg"
           >
-            Donate
+            {tr.donate}
           </a>
         </div>
       )}

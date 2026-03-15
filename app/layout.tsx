@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SkipNav from "@/components/SkipNav";
 import { StickyDonateBar } from "@/components/DonateButton";
+import { LangProvider } from "@/lib/LangContext";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -47,13 +48,15 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${inter.variable} ${dmMono.variable} antialiased`}
       >
-        <SkipNav />
-        <Header />
-        <main id="main-content" role="main">
-          {children}
-        </main>
-        <Footer />
-        <StickyDonateBar />
+        <LangProvider>
+          <SkipNav />
+          <Header />
+          <main id="main-content" role="main">
+            {children}
+          </main>
+          <Footer />
+          <StickyDonateBar />
+        </LangProvider>
       </body>
     </html>
   );
