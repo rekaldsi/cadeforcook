@@ -54,6 +54,10 @@ export default function HeroSection() {
           <span className="text-white">Neighborhood.</span>
         </h1>
 
+        <p className="font-mono text-sm text-skyblue/80 mb-8">
+          Serving Irving Park · Portage Park · Jefferson Park · Dunning · Norwood Park · Belmont Cragin
+        </p>
+
         {/* Subhead */}
         <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
           {tr.subhead}

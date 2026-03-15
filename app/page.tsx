@@ -9,16 +9,14 @@ import EndorsementBadge from "@/components/EndorsementBadge";
 import StatsCounter from "@/components/StatsCounter";
 import PhotoStrip from "@/components/PhotoStrip";
 import DonateSection from "@/components/DonateSection";
+import TransparencySection from "@/components/TransparencySection";
 import issues from "@/data/issues";
 import endorsements from "@/data/endorsements";
 import { useLang } from "@/lib/LangContext";
 import t from "@/lib/translations";
-import { ACTBLUE_URL } from "@/components/DonateButton";
 
-/* ─── Accent cycling for issue cards ─── */
 const ACCENT_COLORS: Array<"navy" | "red" | "skyblue"> = ["navy", "red", "skyblue", "navy", "red"];
 
-/* ─── Copy Link client component ─── */
 function CopyLinkButton() {
   const [copied, setCopied] = useState(false);
 
@@ -49,15 +47,10 @@ export default function Home() {
 
   return (
     <>
-      {/* ══════════════════════════════════════
-          SECTION 1 — HERO (full-viewport split)
-      ══════════════════════════════════════ */}
       <HeroSection />
 
-      {/* ══════════════════════════════════════
-          SECTION 2 — THE CASE (3 pillars)
-          Goal: Answer "why this person specifically"
-      ══════════════════════════════════════ */}
+      <StatsCounter />
+
       <section
         className="bg-background py-16 md:py-20 border-t border-gray-100"
         aria-labelledby="case-heading"
@@ -73,22 +66,22 @@ export default function Home() {
             {tr.case.heading}
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Served */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-navy hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">01</p>
               <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.served.title}
               </h3>
               <p className="text-text/80 leading-relaxed">{tr.case.served.body}</p>
             </div>
-            {/* Taught */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-red hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">02</p>
               <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.taught.title}
               </h3>
               <p className="text-text/80 leading-relaxed">{tr.case.taught.body}</p>
             </div>
-            {/* Fought */}
             <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-skyblue hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">03</p>
               <h3 className="text-xl font-bold text-navy mb-3">
                 {tr.case.fought.title}
               </h3>
@@ -98,18 +91,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 3 — ROOTS (community connection)
-          Goal: "He IS one of us"
-      ══════════════════════════════════════ */}
       <section
         className="py-16 md:py-24 border-t border-gray-100 bg-background"
         aria-labelledby="roots-heading"
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-
-            {/* Polaroid-style family photo */}
             <div className="flex justify-center order-2 md:order-1">
               <div
                 className="bg-white p-4 pb-10 shadow-xl"
@@ -129,7 +116,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Quote + credentials */}
             <div className="order-1 md:order-2">
               <h2 id="roots-heading" className="sr-only">Community Roots</h2>
               <blockquote className="font-heading text-2xl md:text-3xl italic text-navy leading-snug mb-6">
@@ -153,10 +139,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 4 — ISSUES (what he'll do)
-          Goal: Substance + specificity
-      ══════════════════════════════════════ */}
       <section
         className="bg-light-gray py-16 md:py-24 border-t border-gray-100"
         aria-labelledby="issues-heading"
@@ -171,8 +153,11 @@ export default function Home() {
           >
             {tr.issues.heading}
           </h2>
-          <p className="text-center text-text/70 leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="text-center text-text/70 leading-relaxed max-w-2xl mx-auto mb-3">
             {tr.issues.subhead}
+          </p>
+          <p className="text-center text-text/80 leading-relaxed max-w-2xl mx-auto mb-12">
+            From Irving Park to Norwood Park, District 8 families deserve a commissioner who shows up.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {issues.map((issue, i) => (
@@ -181,6 +166,7 @@ export default function Home() {
                 issue={issue}
                 lang={lang}
                 accentColor={ACCENT_COLORS[i % ACCENT_COLORS.length]}
+                cardNumber={i + 1}
               />
             ))}
           </div>
@@ -195,21 +181,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 5 — BY THE NUMBERS
-          Goal: Social proof + urgency
-      ══════════════════════════════════════ */}
-      <StatsCounter />
-
-      {/* ══════════════════════════════════════
-          SECTION 6 — PHOTO STRIP "On the Trail"
-      ══════════════════════════════════════ */}
       <PhotoStrip />
 
-      {/* ══════════════════════════════════════
-          SECTION 7 — ENDORSEMENTS
-          Goal: Trust signals
-      ══════════════════════════════════════ */}
       <section
         className="bg-light-gray py-16 md:py-24 px-4 border-t border-gray-100"
         aria-labelledby="endorsements-heading"
@@ -235,62 +208,133 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 8 — COMMUNITY RESOURCES TEASER
-          Goal: Show Nicholas will actually serve, not just campaign
-      ══════════════════════════════════════ */}
-      <section
-        className="bg-light-gray py-16 md:py-24 px-4 border-t border-gray-100"
-        aria-labelledby="resources-teaser-heading"
-      >
-        <div className="max-w-6xl mx-auto">
-          <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
-            More Than a Campaign
+      <TransparencySection />
+
+      <section className="bg-navy py-16 md:py-20 px-4 border-t border-white/10" aria-labelledby="resources-teaser-heading">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-skyblue mb-3">
+            District 8 Services
           </p>
           <h2
             id="resources-teaser-heading"
-            className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-4"
+            className="font-heading text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            A Resource for District 8
+            Need Help in District 8?
           </h2>
-          <p className="text-center text-text/70 leading-relaxed max-w-2xl mx-auto mb-10">
-            Nicholas isn't just asking for your vote — he wants to be a commissioner who actually helps. Food, housing, health care, immigration, legal aid — we've put together a resource guide for northwest side residents.
+          <p className="text-white/75 leading-relaxed max-w-3xl mx-auto mb-8">
+            Resources for Irving Park, Portage Park, Jefferson Park, and the neighborhoods we call home.
           </p>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 max-w-3xl mx-auto mb-10">
-            {[
-              { emoji: "🍎", label: "Food Help", href: "/resources#food" },
-              { emoji: "🏠", label: "Housing", href: "/resources#housing" },
-              { emoji: "🏥", label: "Health", href: "/resources#health" },
-              { emoji: "📋", label: "Immigration", href: "/resources#immigration" },
-              { emoji: "💼", label: "Jobs", href: "/resources#jobs" },
-              { emoji: "👴", label: "Seniors", href: "/resources#seniors" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-              >
-                <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
-                <span className="text-navy font-bold text-sm text-center leading-tight">{item.label}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             <Link
-              href="/resources"
-              className="inline-block bg-navy text-white font-bold px-8 py-3 rounded-lg hover:bg-navy/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+              href="/resources#food"
+              className="rounded-full border border-white/25 bg-white/10 text-white px-5 py-2.5 font-medium hover:bg-white/20 transition-colors"
             >
-              See All District 8 Resources →
+              🍎 Food Assistance
             </Link>
+            <Link
+              href="/resources#housing"
+              className="rounded-full border border-white/25 bg-white/10 text-white px-5 py-2.5 font-medium hover:bg-white/20 transition-colors"
+            >
+              🏠 Housing Help
+            </Link>
+            <Link
+              href="/resources#health"
+              className="rounded-full border border-white/25 bg-white/10 text-white px-5 py-2.5 font-medium hover:bg-white/20 transition-colors"
+            >
+              🏥 Health Care
+            </Link>
+          </div>
+          <Link
+            href="/resources"
+            className="inline-block bg-red text-white font-bold px-8 py-3 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white"
+          >
+            See All 60+ District 8 Resources →
+          </Link>
+        </div>
+      </section>
+
+      <section
+        className="bg-background py-16 md:py-24 px-4 border-t border-gray-100"
+        aria-labelledby="action-hub-heading"
+      >
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
+            {tr.getInvolved.eyebrow}
+          </p>
+          <h2
+            id="action-hub-heading"
+            className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-12"
+          >
+            {tr.getInvolved.heading}
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-navy hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">01</p>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                {tr.getInvolved.vote.title}
+              </h3>
+              <p className="text-text/70 mb-6 leading-relaxed">
+                {tr.getInvolved.vote.body}
+              </p>
+              <a
+                href="https://www.elections.il.gov/VotingAndRegistrationSystems/RegisterToVoteLogin.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-navy text-white font-bold px-6 py-3 rounded-lg hover:bg-navy/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+              >
+                {tr.getInvolved.vote.cta}
+              </a>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-red hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">02</p>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                {tr.getInvolved.canvass.title}
+              </h3>
+              <p className="text-text/70 mb-6 leading-relaxed">
+                {tr.getInvolved.canvass.body}
+              </p>
+              <Link
+                href="/get-involved"
+                className="inline-block bg-red text-white font-bold px-6 py-3 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+              >
+                {tr.getInvolved.canvass.cta}
+              </Link>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-sm p-8 border-l-4 border-l-skyblue hover:shadow-md transition-shadow">
+              <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">03</p>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                {tr.getInvolved.share.title}
+              </h3>
+              <p className="text-text/70 mb-6 leading-relaxed">
+                {tr.getInvolved.share.body}
+              </p>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="https://twitter.com/intent/tweet?text=Nicholas%20Cade%20is%20running%20for%20Cook%20County%20Commissioner%2C%20District%208.%20Vote%20March%2017!&url=https%3A%2F%2Fcadeforcook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#1DA1F2]/10 text-[#1DA1F2] font-bold px-4 py-2.5 rounded-lg hover:bg-[#1DA1F2]/20 transition-colors text-sm focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+                >
+                  <span aria-hidden="true" className="font-bold">𝕏</span> Share on X/Twitter
+                </a>
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcadeforcook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#1877F2]/10 text-[#1877F2] font-bold px-4 py-2.5 rounded-lg hover:bg-[#1877F2]/20 transition-colors text-sm focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+                >
+                  <span aria-hidden="true" className="font-bold">f</span> Share on Facebook
+                </a>
+                <CopyLinkButton />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 9 — VOTER TESTIMONIALS
-          Goal: Social proof from real people
-      ══════════════════════════════════════ */}
-      {/* TODO: Replace with real constituent testimonials from campaign */}
       <section
         className="bg-navy py-16 md:py-24 px-4"
         aria-labelledby="testimonials-heading"
@@ -338,104 +382,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          SECTION 9 — GET INVOLVED (action hub)
-          Goal: Low friction CTAs
-      ══════════════════════════════════════ */}
-      <section
-        className="bg-background py-16 md:py-24 px-4 border-t border-gray-100"
-        aria-labelledby="action-hub-heading"
-      >
-        <div className="max-w-6xl mx-auto">
-          <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
-            {tr.getInvolved.eyebrow}
-          </p>
-          <h2
-            id="action-hub-heading"
-            className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-12"
-          >
-            {tr.getInvolved.heading}
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Vote */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-navy text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">🗳️</div>
-              <h3 className="text-xl font-bold text-navy mb-3">
-                {tr.getInvolved.vote.title}
-              </h3>
-              <p className="text-text/70 mb-6 leading-relaxed">
-                {tr.getInvolved.vote.body}
-              </p>
-              <a
-                href="https://www.elections.il.gov/VotingAndRegistrationSystems/RegisterToVoteLogin.aspx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-navy text-white font-bold px-6 py-3 rounded-lg hover:bg-navy/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-              >
-                {tr.getInvolved.vote.cta}
-              </a>
-            </div>
-
-            {/* Canvass */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-red text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">🚪</div>
-              <h3 className="text-xl font-bold text-navy mb-3">
-                {tr.getInvolved.canvass.title}
-              </h3>
-              <p className="text-text/70 mb-6 leading-relaxed">
-                {tr.getInvolved.canvass.body}
-              </p>
-              <Link
-                href="/get-involved"
-                className="inline-block bg-red text-white font-bold px-6 py-3 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-              >
-                {tr.getInvolved.canvass.cta}
-              </Link>
-            </div>
-
-            {/* Share */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border-t-4 border-t-skyblue text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4" aria-hidden="true">📢</div>
-              <h3 className="text-xl font-bold text-navy mb-3">
-                {tr.getInvolved.share.title}
-              </h3>
-              <p className="text-text/70 mb-6 leading-relaxed">
-                {tr.getInvolved.share.body}
-              </p>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://twitter.com/intent/tweet?text=Nicholas%20Cade%20is%20running%20for%20Cook%20County%20Commissioner%2C%20District%208.%20Vote%20March%2017!&url=https%3A%2F%2Fcadeforcook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#1DA1F2]/10 text-[#1DA1F2] font-bold px-4 py-2.5 rounded-lg hover:bg-[#1DA1F2]/20 transition-colors text-sm focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-                >
-                  <span aria-hidden="true" className="font-bold">𝕏</span> Share on X/Twitter
-                </a>
-                <a
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcadeforcook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#1877F2]/10 text-[#1877F2] font-bold px-4 py-2.5 rounded-lg hover:bg-[#1877F2]/20 transition-colors text-sm focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-                >
-                  <span aria-hidden="true" className="font-bold">f</span> Share on Facebook
-                </a>
-                <CopyLinkButton />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          SECTION 10 — DONATE CTA (urgent)
-          Goal: Convert visitors to donors / voters on primary day
-      ══════════════════════════════════════ */}
       <DonateSection />
 
-      {/* ══════════════════════════════════════
-          SECTION 11 — CAMPAIGN BADGE
-      ══════════════════════════════════════ */}
       <section className="bg-navy py-14 md:py-20 px-4" aria-label="Campaign badge">
         <div className="max-w-sm mx-auto text-center">
           <div className="w-16 h-px bg-white/20 mx-auto mb-10" aria-hidden="true" />

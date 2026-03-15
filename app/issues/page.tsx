@@ -36,6 +36,7 @@ export default function IssuesPage() {
               lang={lang}
               expanded
               accentColor={ACCENT_COLORS[i % ACCENT_COLORS.length]}
+              cardNumber={i + 1}
             />
           ))}
         </div>
