@@ -244,19 +244,6 @@ export default function Home() {
         aria-labelledby="testimonials-heading"
       >
         <div className="max-w-6xl mx-auto">
-          {/* Placeholder warning banner */}
-          <div
-            className="text-center mb-10 px-4 py-3 rounded-lg font-mono text-sm font-bold"
-            style={{
-              background: "rgba(244,169,43,0.15)",
-              color: "#F4A92B",
-              border: "1px solid rgba(244,169,43,0.3)",
-            }}
-            role="alert"
-          >
-            {tr.testimonials.placeholderBanner}
-          </div>
-
           <p
             className="text-center font-mono text-xs tracking-[0.2em] uppercase mb-3"
             style={{ color: "#6DD3E8" }}
