@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- VoteVets bold V logo mark -->
+  <polygon points="20,15 40,15 55,50 70,15 90,15 65,65 45,65" fill="#0A2240"/>
+  <polygon points="38,38 48,38 55,50 62,38 72,38 65,55 45,55" fill="#C41E3A"/>
+  <text x="98" y="38" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#0A2240">Vote</text>
+  <text x="98" y="62" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="18" fill="#C41E3A">Vets</text>
+</svg>

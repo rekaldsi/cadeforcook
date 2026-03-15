@@ -12,13 +12,11 @@ export default function EndorsementBadge({ endorsement }: { endorsement: Endorse
       <div className="flex flex-col items-center gap-3 h-full">
         {endorsement.logoUrl ? (
           <div className="flex items-center justify-center w-full h-16">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={endorsement.logoUrl}
               alt={`${endorsement.name} logo`}
-              width={200}
-              height={64}
               className="max-h-16 w-auto object-contain"
-              unoptimized
             />
           </div>
         ) : (

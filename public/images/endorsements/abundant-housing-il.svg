@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <!-- House icon -->
+  <polygon points="20,50 40,28 60,50" fill="#E8681A" stroke="none"/>
+  <rect x="26" y="50" width="28" height="22" fill="#E8681A"/>
+  <rect x="34" y="58" width="12" height="14" fill="white"/>
+  <!-- Text -->
+  <text x="72" y="30" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#E8681A" letter-spacing="0.5">ABUNDANT</text>
+  <text x="72" y="47" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#333333" letter-spacing="0.5">HOUSING</text>
+  <text x="72" y="64" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#333333" letter-spacing="0.5">ILLINOIS</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <!-- Chicago skyline silhouette simplified -->
+  <rect x="8" y="55" width="6" height="17" fill="#1B4F72"/>
+  <rect x="16" y="45" width="8" height="27" fill="#1B4F72"/>
+  <rect x="26" y="38" width="10" height="34" fill="#1B4F72"/>
+  <rect x="38" y="48" width="6" height="24" fill="#1B4F72"/>
+  <rect x="46" y="42" width="8" height="30" fill="#1B4F72"/>
+  <!-- Text -->
+  <text x="64" y="30" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#1B4F72" letter-spacing="0.5">CHICAGO</text>
+  <text x="64" y="47" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#1B4F72" letter-spacing="0.5">GROWTH</text>
+  <text x="64" y="64" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="11" fill="#1B4F72" letter-spacing="0.5">PROJECT</text>
+</svg>
