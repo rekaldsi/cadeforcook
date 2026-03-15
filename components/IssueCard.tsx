@@ -45,6 +45,7 @@ interface IssueCardProps {
   lang: Lang;
   expanded?: boolean;
   accentColor?: "navy" | "red" | "skyblue";
+  cardNumber?: number;
 }
 
 export default function IssueCard({
@@ -52,6 +53,7 @@ export default function IssueCard({
   lang,
   expanded = false,
   accentColor = "navy",
+  cardNumber,
 }: IssueCardProps) {
   const callout = issueCallouts[issue.id];
   const calloutText = callout ? callout[lang] : undefined;
@@ -66,10 +68,11 @@ export default function IssueCard({
     <div
       className={`bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow p-6 md:p-8 h-full flex flex-col border-l-4 ${borderColorMap[accentColor]}`}
     >
-      {/* Icon */}
-      <div className="text-4xl mb-4" aria-hidden="true">
-        {issue.icon}
-      </div>
+      {typeof cardNumber === "number" && (
+        <p className="font-mono text-sm font-bold tracking-[0.2em] uppercase text-red mb-4">
+          {String(cardNumber).padStart(2, "0")}
+        </p>
+      )}
 
       {/* Title */}
       <h3 className="text-xl font-bold text-navy mb-3">
