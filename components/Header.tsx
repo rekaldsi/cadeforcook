@@ -64,7 +64,7 @@ export default function Header() {
           <LanguageSwitcher />
           <button
             onClick={() => setOpen(!open)}
-            className="p-2 focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+            className="h-11 w-11 inline-flex items-center justify-center rounded-lg border border-gray-200 bg-white focus:outline-2 focus:outline-offset-2 focus:outline-navy"
             aria-expanded={open}
             aria-label="Toggle navigation menu"
           >

@@ -42,7 +42,7 @@ export default function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Language: ${current.label}. Click to change language.`}
-        className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-gray-200 hover:border-navy hover:bg-navy/5 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy bg-white text-text"
+        className="flex min-h-11 min-w-11 items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg border border-skyblue/70 shadow-sm hover:border-navy hover:bg-navy/5 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy bg-white text-text"
       >
         <span aria-hidden="true">{current.flag}</span>
         <span className="hidden sm:inline">{current.native}</span>
