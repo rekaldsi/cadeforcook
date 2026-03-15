@@ -2,13 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ACTBLUE_URL } from "./DonateButton";
 import { useLang } from "@/lib/LangContext";
 import t from "@/lib/translations";
 
+function isPrimaryDay(): boolean {
+  const now = new Date();
+  const primary = new Date("2026-03-17");
+  return (
+    now.getFullYear() === primary.getFullYear() &&
+    now.getMonth() === primary.getMonth() &&
+    now.getDate() === primary.getDate()
+  );
+}
+
 export default function HeroSection() {
   const { lang } = useLang();
   const tr = t[lang].hero;
+  const [isToday, setIsToday] = useState(false);
+
+  useEffect(() => {
+    setIsToday(isPrimaryDay());
+  }, []);
+
+  const primaryCta = isToday ? "🗳️ VOTE TODAY — POLLS OPEN" : tr.ctaPrimary;
+  const eyebrow = isToday
+    ? "🗳️ TODAY IS MARCH 17 · ELECTION DAY · COOK COUNTY DISTRICT 8"
+    : tr.eyebrow;
 
   return (
     <section
@@ -21,9 +42,9 @@ export default function HeroSection() {
         {/* Eyebrow */}
         <p
           className="font-mono text-xs tracking-[0.25em] uppercase mb-8 font-bold"
-          style={{ color: "#6DD3E8" }}
+          style={{ color: isToday ? "#FFD700" : "#6DD3E8" }}
         >
-          {tr.eyebrow}
+          {eyebrow}
         </p>
 
         {/* Main headline */}
@@ -40,14 +61,26 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-          <a
-            href={ACTBLUE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-red text-white font-bold text-base px-8 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center tracking-wide uppercase"
-          >
-            {tr.ctaPrimary}
-          </a>
+          {isToday ? (
+            <a
+              href="https://www.cookcountyclerk.com/service/polling-place-locator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-navy font-bold text-base px-8 py-4 rounded-lg shadow-lg text-center tracking-wide uppercase animate-pulse"
+              style={{ backgroundColor: "#FFD700" }}
+            >
+              {primaryCta}
+            </a>
+          ) : (
+            <a
+              href={ACTBLUE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-red text-white font-bold text-base px-8 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center tracking-wide uppercase"
+            >
+              {primaryCta}
+            </a>
+          )}
           <Link
             href="/about"
             className="inline-block bg-transparent text-white font-bold text-base px-8 py-4 rounded-lg border-2 border-white hover:bg-white hover:text-navy transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"

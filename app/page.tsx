@@ -8,6 +8,7 @@ import IssueCard from "@/components/IssueCard";
 import EndorsementBadge from "@/components/EndorsementBadge";
 import StatsCounter from "@/components/StatsCounter";
 import PhotoStrip from "@/components/PhotoStrip";
+import DonateSection from "@/components/DonateSection";
 import issues from "@/data/issues";
 import endorsements from "@/data/endorsements";
 import { useLang } from "@/lib/LangContext";
@@ -377,79 +378,9 @@ export default function Home() {
 
       {/* ══════════════════════════════════════
           SECTION 10 — DONATE CTA (urgent)
-          Goal: Convert visitors to donors
+          Goal: Convert visitors to donors / voters on primary day
       ══════════════════════════════════════ */}
-      <section
-        className="relative overflow-hidden bg-navy text-white"
-        aria-labelledby="donate-heading"
-      >
-        {/* Rally photo background (right half on desktop) */}
-        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2">
-          <Image
-            src="/images/cade-rally.webp"
-            alt=""
-            fill
-            className="object-cover object-center opacity-40"
-            sizes="50vw"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent"
-            aria-hidden="true"
-          />
-        </div>
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="mb-6">
-              <Image
-                src="/images/cade-banner.png"
-                alt="Cade for Cook"
-                width={200}
-                height={60}
-                className="w-[200px] h-auto brightness-150 opacity-90"
-              />
-            </div>
-
-            <p
-              className="font-mono text-xs tracking-[0.2em] uppercase mb-4"
-              style={{ color: "#6DD3E8" }}
-            >
-              {tr.donate.eyebrow}
-            </p>
-            <h2
-              id="donate-heading"
-              className="font-heading text-4xl md:text-5xl font-bold mb-4 leading-tight"
-            >
-              {tr.donate.heading}{" "}
-              <span className="text-red">{tr.donate.headlineAccent}</span>
-              <br />
-              <span className="text-white">{tr.donate.subhead}</span>
-            </h2>
-
-            <p className="text-white/80 mb-8 leading-relaxed text-lg max-w-xl">
-              {tr.donate.urgency}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={ACTBLUE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-red text-white font-bold text-lg px-10 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center"
-              >
-                {tr.donate.cta}
-              </a>
-              <Link
-                href="/get-involved"
-                className="inline-block bg-transparent text-white font-bold text-lg px-10 py-4 rounded-lg border-2 border-white hover:bg-white hover:text-navy transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
-              >
-                {tr.donate.volunteerCta}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DonateSection />
 
       {/* ══════════════════════════════════════
           SECTION 11 — CAMPAIGN BADGE
