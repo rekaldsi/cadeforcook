@@ -3,7 +3,7 @@ import type { Lang } from "@/lib/i18n";
 
 export default function IssueCard({ issue, lang, expanded = false }: { issue: Issue; lang: Lang; expanded?: boolean }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow p-6 md:p-8 h-full">
       <div className="text-3xl mb-3" aria-hidden="true">{issue.icon}</div>
       <h3 className="font-heading text-xl md:text-2xl font-bold text-navy mb-2">
         {issue.title[lang]}
