@@ -17,6 +17,7 @@ export default function Header() {
     { href: "/", label: tr.home },
     { href: "/about", label: tr.about },
     { href: "/issues", label: tr.issues },
+    { href: "/resources", label: "Resources" },
     { href: "/get-involved", label: tr.getInvolved },
     { href: "/press", label: tr.press },
   ];

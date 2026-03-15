@@ -236,7 +236,57 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════
-          SECTION 8 — VOTER TESTIMONIALS (NEW — PLACEHOLDER)
+          SECTION 8 — COMMUNITY RESOURCES TEASER
+          Goal: Show Nicholas will actually serve, not just campaign
+      ══════════════════════════════════════ */}
+      <section
+        className="bg-light-gray py-16 md:py-24 px-4 border-t border-gray-100"
+        aria-labelledby="resources-teaser-heading"
+      >
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
+            More Than a Campaign
+          </p>
+          <h2
+            id="resources-teaser-heading"
+            className="font-heading text-3xl md:text-4xl font-bold text-navy text-center mb-4"
+          >
+            A Resource for District 8
+          </h2>
+          <p className="text-center text-text/70 leading-relaxed max-w-2xl mx-auto mb-10">
+            Nicholas isn't just asking for your vote — he wants to be a commissioner who actually helps. Food, housing, health care, immigration, legal aid — we've put together a resource guide for northwest side residents.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-3xl mx-auto mb-10">
+            {[
+              { emoji: "🍎", label: "Food Help", href: "/resources#food" },
+              { emoji: "🏠", label: "Housing", href: "/resources#housing" },
+              { emoji: "🏥", label: "Health", href: "/resources#health" },
+              { emoji: "📋", label: "Immigration", href: "/resources#immigration" },
+              { emoji: "⚖️", label: "Legal Aid", href: "/resources#legal" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+              >
+                <span className="text-3xl" aria-hidden="true">{item.emoji}</span>
+                <span className="text-navy font-bold text-sm text-center leading-tight">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/resources"
+              className="inline-block bg-navy text-white font-bold px-8 py-3 rounded-lg hover:bg-navy/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+            >
+              See All District 8 Resources →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          SECTION 9 — VOTER TESTIMONIALS
           Goal: Social proof from real people
       ══════════════════════════════════════ */}
       {/* TODO: Replace with real constituent testimonials from campaign */}
