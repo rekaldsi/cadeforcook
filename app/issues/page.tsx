@@ -5,7 +5,16 @@ import issues from "@/data/issues";
 import { useLang } from "@/lib/LangContext";
 import t from "@/lib/translations";
 
-const ACCENT_COLORS: Array<"navy" | "red" | "skyblue"> = ["navy", "red", "skyblue", "navy", "red"];
+const ACCENT_COLORS: Array<"navy" | "red" | "skyblue" | "green"> = [
+  "navy",
+  "red",
+  "skyblue",
+  "green",
+  "red",
+  "skyblue",
+  "green",
+  "navy",
+];
 
 export default function IssuesPage() {
   const { lang } = useLang();
