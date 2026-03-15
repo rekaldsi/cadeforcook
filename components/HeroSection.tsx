@@ -87,6 +87,12 @@ export default function HeroSection() {
           >
             {tr.ctaSecondary}
           </Link>
+          <Link
+            href="/resources"
+            className="inline-block bg-white/10 text-white font-bold text-base px-8 py-4 rounded-lg border border-white/30 hover:bg-white/20 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
+          >
+            Get Help →
+          </Link>
         </div>
 
         {/* Social proof strip */}
