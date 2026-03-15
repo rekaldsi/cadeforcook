@@ -205,48 +205,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Brand / Logos — proper home for campaign badges */}
-      <section
-        className="bg-navy py-16 md:py-20 px-4"
-        aria-labelledby="logos-heading"
-      >
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Thin rule above */}
+      {/* 7. Campaign Badge — clean centered lockup on navy */}
+      <section className="bg-navy py-14 md:py-20 px-4" aria-label="Campaign badge">
+        <div className="max-w-sm mx-auto text-center">
           <div className="w-16 h-px bg-white/20 mx-auto mb-10" aria-hidden="true" />
-
-          <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3" style={{ color: "#6DD3E8" }}>
-            Supported By Our Community
-          </p>
-          <h2
-            id="logos-heading"
-            className="font-heading text-2xl md:text-3xl font-bold text-white mb-10"
-          >
-            Proud to Run as a Democrat for Chicago
-          </h2>
-
-          {/* Logos arranged side-by-side */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-            <div className="opacity-90 hover:opacity-100 transition-opacity">
-              <Image
-                src="/images/cade-logo.png"
-                alt="Cade for Cook — Democrat for Chicago badge"
-                width={180}
-                height={180}
-                className="w-36 md:w-44 h-auto object-contain"
-              />
-            </div>
-            <div className="opacity-90 hover:opacity-100 transition-opacity">
-              <Image
-                src="/images/cade-badge.png"
-                alt="Cade for Cook — Campaign badge"
-                width={180}
-                height={180}
-                className="w-36 md:w-44 h-auto object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Thin rule below */}
+          <Image
+            src="/images/cade-badge.png"
+            alt="Nicholas Cade — Democrat for Cook, 8th District County Commissioner"
+            width={260}
+            height={260}
+            className="w-48 md:w-64 h-auto object-contain mx-auto drop-shadow-xl"
+          />
           <div className="w-16 h-px bg-white/20 mx-auto mt-10" aria-hidden="true" />
         </div>
       </section>
