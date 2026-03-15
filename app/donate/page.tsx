@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import TieredGiving from "@/components/TieredGiving";
 export const metadata: Metadata = {
   title: "Donate | Nicholas Cade for Cook County",
   description: "Support Nicholas Cade's campaign for Cook County Commissioner, District 8. Donate via ActBlue.",
@@ -16,6 +17,7 @@ const rules = [
 export default function DonatePage() {
   return (
     <>
+      <TieredGiving />
       <section className="bg-gradient-to-br from-navy to-[#0d2d54] text-white py-16 md:py-24 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Support the Campaign</h1>
