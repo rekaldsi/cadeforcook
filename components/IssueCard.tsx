@@ -31,12 +31,33 @@ const issueCallouts: Record<string, { en: string; es: string; pl: string; tl: st
     tl: "Poprotektahan ni Nicholas ang welcoming ordinance ng Cook County at titiyakin ang pantay na access sa mga serbisyo ng county para sa bawat residente.",
     hi: "Nicholas Cook County के welcoming ordinance की रक्षा करेंगे और हर निवासी के लिए county सेवाओं तक समान पहुंच सुनिश्चित करेंगे।",
   },
-  "reject-extremism": {
-    en: "Nicholas will be an uncompromising voice against extremist policies — defending reproductive rights, civil liberties, and the integrity of our elections.",
-    es: "Nicholas será una voz inflexible contra las políticas extremistas — defendiendo los derechos reproductivos, las libertades civiles y la integridad de nuestras elecciones.",
-    pl: "Nicholas będzie bezkompromisowym głosem przeciwko ekstremistycznym politykom — broniąc praw reprodukcyjnych, swobód obywatelskich i integralności wyborów.",
-    tl: "Si Nicholas ay magiging walang kompromisong boses laban sa mga extremist na patakaran — pagtatanggol sa reproductive rights, civil liberties, at integridad ng ating mga halalan.",
-    hi: "Nicholas extremist नीतियों के खिलाफ एक अडिग आवाज होंगे — reproductive rights, civil liberties और हमारे चुनावों की अखंडता का बचाव करेंगे।",
+  "protecting-rights-accountability": {
+    en: "Nicholas will protect county health access, election integrity, and public records transparency so local government safeguards rights in District 8.",
+    es: "Nicholas protegerá el acceso a salud del condado, la integridad electoral y la transparencia de registros públicos para resguardar derechos en el Distrito 8.",
+    pl: "Nicholas będzie chronił dostęp do opieki zdrowotnej county, integralność wyborów i przejrzystość rejestrów publicznych dla mieszkańców Okręgu 8.",
+    tl: "Poprotektahan ni Nicholas ang county health access, election integrity, at transparency ng public records para sa mga pamilya sa Distrito 8.",
+    hi: "Nicholas county health access, चुनावी ईमानदारी और public records transparency की रक्षा करेंगे ताकि District 8 में अधिकार सुरक्षित रहें।",
+  },
+  "public-health": {
+    en: "Nicholas will fully fund Cook County Health, expand CountyCare enrollment, and strengthen mental health and addiction services in District 8.",
+    es: "Nicholas financiará plenamente Cook County Health, ampliará CountyCare y fortalecerá salud mental y tratamiento de adicciones en el Distrito 8.",
+    pl: "Nicholas będzie walczył o pełne finansowanie Cook County Health, rozszerzenie CountyCare i wzmocnienie usług zdrowia psychicznego w Okręgu 8.",
+    tl: "Lalaban si Nicholas para sa buong pondo ng Cook County Health, mas malawak na CountyCare enrollment, at mas matibay na mental health at addiction care sa Distrito 8.",
+    hi: "Nicholas Cook County Health के पूर्ण फंडिंग, CountyCare enrollment विस्तार और District 8 में mental health व addiction सेवाओं को मजबूत करेंगे।",
+  },
+  "criminal-justice-safety": {
+    en: "Nicholas supports smarter jail management, faster courts, and community violence prevention programs that reduce harm before it happens.",
+    es: "Nicholas apoya una gestión inteligente de cárceles, tribunales más ágiles y programas comunitarios de prevención de violencia que sí funcionan.",
+    pl: "Nicholas popiera lepsze zarządzanie więzieniem, szybsze sądy i skuteczne lokalne programy zapobiegania przemocy.",
+    tl: "Suportado ni Nicholas ang mas matalinong jail management, mas mabilis na hukuman, at community violence prevention programs na epektibo.",
+    hi: "Nicholas बेहतर jail management, तेज अदालतों और प्रभावी community violence prevention programs का समर्थन करते हैं।",
+  },
+  "schools-youth": {
+    en: "As a CPS parent and LSC representative, Nicholas will expand youth programs and make county services easier for District 8 families to access.",
+    es: "Como padre de CPS y representante del LSC, Nicholas ampliará programas juveniles y facilitará el acceso familiar a servicios del condado en el Distrito 8.",
+    pl: "Jako rodzic CPS i przedstawiciel LSC, Nicholas rozszerzy programy młodzieżowe i ułatwi rodzinom z Okręgu 8 dostęp do usług county.",
+    tl: "Bilang CPS parent at LSC representative, palalawakin ni Nicholas ang youth programs at papadaliin ang county services para sa mga pamilya sa Distrito 8.",
+    hi: "CPS parent और LSC representative के रूप में Nicholas youth programs बढ़ाएंगे और District 8 परिवारों के लिए county services तक पहुंच आसान करेंगे।",
   },
 };
 
@@ -44,7 +65,7 @@ interface IssueCardProps {
   issue: Issue;
   lang: Lang;
   expanded?: boolean;
-  accentColor?: "navy" | "red" | "skyblue";
+  accentColor?: "navy" | "red" | "skyblue" | "green";
   cardNumber?: number;
 }
 
@@ -62,6 +83,7 @@ export default function IssueCard({
     navy: "border-l-navy",
     red: "border-l-red",
     skyblue: "border-l-skyblue",
+    green: "border-l-green",
   };
 
   return (

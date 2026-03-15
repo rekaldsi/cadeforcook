@@ -16,7 +16,16 @@ import endorsements from "@/data/endorsements";
 import { useLang } from "@/lib/LangContext";
 import t from "@/lib/translations";
 
-const ACCENT_COLORS: Array<"navy" | "red" | "skyblue"> = ["navy", "red", "skyblue", "navy", "red"];
+const ACCENT_COLORS: Array<"navy" | "red" | "skyblue" | "green"> = [
+  "navy",
+  "red",
+  "skyblue",
+  "green",
+  "red",
+  "skyblue",
+  "green",
+  "navy",
+];
 
 function CopyLinkButton() {
   const [copied, setCopied] = useState(false);

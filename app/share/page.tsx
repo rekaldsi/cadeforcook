@@ -1,21 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-const downloads = [
-  {
-    label: "Facebook / Twitter (1200×628)",
-    href: "/downloads/cade-share-facebook.png",
-  },
-  {
-    label: "Instagram Square (1080×1080)",
-    href: "/downloads/cade-share-instagram.png",
-  },
-  {
-    label: "Instagram Story (1080×1920)",
-    href: "/downloads/cade-share-story.png",
-  },
-];
+type ShareCardConfig = {
+  id: string;
+  label: string;
+  filename: string;
+  title: string;
+  subtitle: string;
+  dateLine: string;
+  size: { width: number; height: number };
+};
 
 const postTemplates = [
   {
@@ -36,6 +31,78 @@ const postTemplates = [
 ];
 
 const hashtags = ["#CadeForCook", "#CookCounty", "#D8", "#IrvingPark", "#PortagePark", "#JeffersonPark"];
+
+const shareCards: ShareCardConfig[] = [
+  {
+    id: "facebook",
+    label: "English Landscape (1200×628)",
+    filename: "cade-share-facebook.svg",
+    title: "Vote Nicholas Cade",
+    subtitle: "Cook County Commissioner — District 8",
+    dateLine: "March 17, 2026 • Primary Election",
+    size: { width: 1200, height: 628 },
+  },
+  {
+    id: "instagram-square",
+    label: "English Square (1080×1080)",
+    filename: "cade-share-instagram.svg",
+    title: "Vote Nicholas Cade",
+    subtitle: "Cook County Commissioner — District 8",
+    dateLine: "March 17, 2026 • Primary Election",
+    size: { width: 1080, height: 1080 },
+  },
+  {
+    id: "instagram-story",
+    label: "English Story (1080×1920)",
+    filename: "cade-share-story.svg",
+    title: "Vote Nicholas Cade",
+    subtitle: "Cook County Commissioner — District 8",
+    dateLine: "March 17, 2026 • Primary Election",
+    size: { width: 1080, height: 1920 },
+  },
+  {
+    id: "spanish",
+    label: "Spanish Share Card",
+    filename: "cade-share-es.svg",
+    title: "Vota por Nicholas Cade",
+    subtitle: "Comisionado del Condado de Cook — Distrito 8",
+    dateLine: "17 de marzo de 2026 • Elección Primaria",
+    size: { width: 1080, height: 1080 },
+  },
+  {
+    id: "tagalog",
+    label: "Tagalog Share Card",
+    filename: "cade-share-tl.svg",
+    title: "Iboto si Nicholas Cade",
+    subtitle: "Komisyoner ng Cook County — Distrito 8",
+    dateLine: "Marso 17, 2026 • Pangunahing Halalan",
+    size: { width: 1080, height: 1080 },
+  },
+];
+
+function createSvgMarkup(card: ShareCardConfig): string {
+  const { width, height } = card.size;
+  const titleY = Math.round(height * 0.35);
+  const accentY = Math.round(height * 0.45);
+  const subtitleY = Math.round(height * 0.57);
+  const dateY = Math.round(height * 0.67);
+  const siteY = Math.round(height * 0.79);
+
+  const titleSize = Math.max(54, Math.round(width * 0.065));
+  const subtitleSize = Math.max(30, Math.round(width * 0.035));
+  const dateSize = Math.max(24, Math.round(width * 0.027));
+  const siteSize = Math.max(28, Math.round(width * 0.03));
+
+  return `
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+  <rect width="100%" height="100%" fill="#0A2240" />
+  <text x="50%" y="${titleY}" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="${titleSize}" font-weight="800">${card.title}</text>
+  <line x1="12%" y1="${accentY}" x2="88%" y2="${accentY}" stroke="#C41E3A" stroke-width="10" />
+  <text x="50%" y="${subtitleY}" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="${subtitleSize}" font-weight="700">${card.subtitle}</text>
+  <text x="50%" y="${dateY}" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="${dateSize}" font-weight="500">${card.dateLine}</text>
+  <text x="50%" y="${siteY}" text-anchor="middle" fill="#6DD3E8" font-family="Inter, Arial, sans-serif" font-size="${siteSize}" font-weight="700">cadeforcook.com</text>
+</svg>`.trim();
+}
 
 function CopyButton({ text, label }: { text: string; label: string }) {
   const [copied, setCopied] = useState(false);
@@ -63,6 +130,16 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 }
 
 export default function SharePage() {
+  const generatedCards = useMemo(
+    () =>
+      shareCards.map((card) => {
+        const svg = createSvgMarkup(card);
+        const href = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+        return { ...card, href };
+      }),
+    []
+  );
+
   return (
     <main className="bg-background text-navy py-14 md:py-20 px-4">
       <div className="max-w-4xl mx-auto">
@@ -72,22 +149,25 @@ export default function SharePage() {
         </p>
 
         <section className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 mb-8">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-5">Download Graphics</h2>
-          <div className="grid gap-3">
-            {downloads.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                download
-                className="inline-flex items-center justify-center rounded-lg border-2 border-navy px-5 py-3 font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-navy"
-              >
-                ↓ {item.label}
-              </a>
+          <h2 className="font-heading text-2xl md:text-3xl font-bold mb-2">Download Graphics</h2>
+          <p className="text-sm text-navy/70 mb-5">Tap any card, then save the image. On desktop, use the download button below each preview.</p>
+          <div className="grid gap-5">
+            {generatedCards.map((card) => (
+              <article key={card.id} className="rounded-xl border border-gray-200 p-4">
+                <p className="font-mono text-xs tracking-[0.18em] uppercase text-red mb-3">{card.label}</p>
+                <a href={card.href} download={card.filename} className="block rounded-lg overflow-hidden border border-gray-200">
+                  <img src={card.href} alt={card.label} className="w-full h-auto" />
+                </a>
+                <a
+                  href={card.href}
+                  download={card.filename}
+                  className="inline-flex items-center justify-center mt-3 rounded-lg border-2 border-navy px-4 py-2 text-sm font-bold text-navy transition-colors hover:bg-navy hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+                >
+                  ↓ Download {card.filename}
+                </a>
+              </article>
             ))}
           </div>
-          <p className="mt-4 text-sm text-navy/70">
-            Graphics coming soon — check back soon or email info@cadeforcook.com
-          </p>
         </section>
 
         <section className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 mb-8">
