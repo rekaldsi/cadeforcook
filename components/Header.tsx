@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { ACTBLUE_URL } from "./DonateButton";
 
@@ -18,8 +19,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-200" role="banner">
       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" aria-label="Main navigation">
-        <Link href="/" className="font-heading text-xl md:text-2xl font-bold text-navy focus:outline-2 focus:outline-offset-2 focus:outline-navy">
-          Cade for Cook
+        <Link href="/" className="flex items-center gap-2 focus:outline-2 focus:outline-offset-2 focus:outline-navy" aria-label="Cade for Cook — Home">
+          <Image
+            src="/images/cade-logo.png"
+            alt="Cade for Cook County"
+            width={140}
+            height={48}
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
