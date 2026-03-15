@@ -23,6 +23,7 @@ export default function Footer({ showLobbyistDisclaimer = false }: { showLobbyis
               <li><Link href="/about" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">{nav.about}</Link></li>
               <li><Link href="/issues" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">{nav.issues}</Link></li>
               <li><Link href="/resources" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">Resources</Link></li>
+              <li><Link href="/share" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">Share the Word</Link></li>
               <li><Link href="/donate" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">{nav.donate}</Link></li>
               <li><Link href="/get-involved" className="hover:text-white transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white">{nav.getInvolved}</Link></li>
             </ul>

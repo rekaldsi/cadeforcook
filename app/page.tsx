@@ -9,6 +9,7 @@ import EndorsementBadge from "@/components/EndorsementBadge";
 import StatsCounter from "@/components/StatsCounter";
 import PhotoStrip from "@/components/PhotoStrip";
 import DonateSection from "@/components/DonateSection";
+import TieredGiving from "@/components/TieredGiving";
 import TransparencySection from "@/components/TransparencySection";
 import issues from "@/data/issues";
 import endorsements from "@/data/endorsements";
@@ -382,6 +383,7 @@ export default function Home() {
         </div>
       </section>
 
+      <TieredGiving />
       <DonateSection />
 
       <section className="bg-navy py-14 md:py-20 px-4" aria-label="Campaign badge">
