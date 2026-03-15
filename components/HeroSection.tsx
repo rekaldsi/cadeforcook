@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ACTBLUE_URL } from "./DonateButton";
+import { ACTBLUE_URL, POLLING_LOCATOR_URL } from "./DonateButton";
 import { useLang } from "@/lib/LangContext";
 import t from "@/lib/translations";
 
@@ -57,6 +57,13 @@ export default function HeroSection() {
         <p className="font-mono text-sm text-skyblue/80 mb-8">
           Serving Irving Park · Portage Park · Jefferson Park · Dunning · Norwood Park · Belmont Cragin
         </p>
+        <p className="text-sm text-white/70 -mt-4 mb-2 text-center sm:text-left">
+          Also available in:{" "}
+          <span className="text-skyblue font-medium">Español · Tagalog · Polski · हिन्दी</span>
+        </p>
+        <p className="text-xs text-white/60 mb-8 text-center sm:text-left italic">
+          "También hablamos español · Nagsasalita rin kami ng Tagalog"
+        </p>
 
         {/* Subhead */}
         <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
@@ -76,14 +83,24 @@ export default function HeroSection() {
               {primaryCta}
             </a>
           ) : (
-            <a
-              href={ACTBLUE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-red text-white font-bold text-base px-8 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center tracking-wide uppercase"
-            >
-              {primaryCta}
-            </a>
+            <>
+              <a
+                href={POLLING_LOCATOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-red text-white font-bold text-base px-8 py-4 rounded-lg hover:bg-red/90 transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white shadow-lg text-center tracking-wide uppercase"
+              >
+                Vote on March 17 →
+              </a>
+              <a
+                href={ACTBLUE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-transparent text-white font-bold text-base px-8 py-4 rounded-lg border-2 border-white hover:bg-white hover:text-navy transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-white text-center"
+              >
+                Donate →
+              </a>
+            </>
           )}
           <Link
             href="/about"

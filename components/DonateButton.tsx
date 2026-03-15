@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const ACTBLUE_URL = "https://secure.actblue.com/donate/ncadewebsite";
-const POLLING_LOCATOR_URL = "https://www.cookcountyclerk.com/service/polling-place-locator";
+const POLLING_LOCATOR_URL = "https://www.cookcountyclerk.com/service/election-information";
 
 function usePrimaryDay() {
   const [isToday, setIsToday] = useState(false);
@@ -46,6 +47,11 @@ export function GetInvolvedButton() {
 
 export function StickyDonateBar() {
   const isToday = usePrimaryDay();
+  const pathname = usePathname();
+
+  if (pathname === "/get-involved") {
+    return null;
+  }
 
   if (isToday) {
     return (
@@ -77,4 +83,4 @@ export function StickyDonateBar() {
   );
 }
 
-export { ACTBLUE_URL };
+export { ACTBLUE_URL, POLLING_LOCATOR_URL };
