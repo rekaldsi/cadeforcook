@@ -21,11 +21,11 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" aria-label="Main navigation">
         <Link href="/" className="flex items-center gap-2 focus:outline-2 focus:outline-offset-2 focus:outline-navy" aria-label="Cade for Cook — Home">
           <Image
-            src="/images/cade-logo.png"
+            src="/images/cade-banner.png"
             alt="Cade for Cook County"
-            width={140}
+            width={160}
             height={48}
-            className="h-12 w-auto object-contain"
+            className="h-8 md:h-10 w-auto max-w-[160px] object-contain"
             priority
           />
         </Link>

@@ -96,14 +96,14 @@ function AnimatedStat({ stat, trigger }: { stat: Stat; trigger: boolean }) {
 
   if (isPrimaryDay && stat.value === "days-until-primary") {
     return (
-      <p className="font-heading text-5xl md:text-6xl font-bold text-red leading-none">
+      <p className="font-heading text-5xl md:text-6xl font-bold leading-none" style={{ color: "#6DD3E8" }}>
         TODAY!
       </p>
     );
   }
 
   return (
-    <p className="font-heading text-5xl md:text-6xl font-bold text-red leading-none">
+    <p className="font-heading text-5xl md:text-6xl font-bold leading-none" style={{ color: "#6DD3E8" }}>
       {stat.prefix}
       {formatNumber(display)}
       {stat.suffix}

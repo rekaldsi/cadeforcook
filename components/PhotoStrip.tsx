@@ -31,13 +31,25 @@ export default function PhotoStrip() {
 
   return (
     <section
-      className="py-12 bg-background overflow-hidden"
-      aria-label="Campaign photo gallery"
+      className="py-16 md:py-24 bg-background overflow-hidden border-t border-gray-100"
+      aria-labelledby="photostrip-heading"
     >
-      {/* Section label */}
-      <p className="text-center text-navy/40 text-xs font-mono tracking-widest uppercase mb-6 px-4">
-        On the trail
-      </p>
+      {/* Section label + heading */}
+      <div className="text-center px-4 mb-10">
+        <p className="font-mono text-xs tracking-[0.2em] uppercase text-red mb-3">
+          On the Trail
+        </p>
+        <h2
+          id="photostrip-heading"
+          className="font-heading text-3xl md:text-4xl font-bold text-navy inline-block relative"
+        >
+          Moments from the Campaign
+          <span
+            className="block mt-2 h-1 w-16 bg-red mx-auto rounded-full"
+            aria-hidden="true"
+          />
+        </h2>
+      </div>
 
       {/* Scrollable strip */}
       <div
